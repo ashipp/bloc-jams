@@ -1,8 +1,24 @@
-        var revealPoint = function() {
-            for (var i=0; i < point.length; i++) {
-                point[i].style.opacity = 1;
-                point[i].style.transform = "scaleX(1) translateY(0)";
-                point[i].style.msTransform = "scaleX(1) translateY(0)";
-                point[i].style.WebkitTransform = "scaleX(1) translateY(0)";
-            }
-            };
+var pointsArray = document.getElementsbyClassName('point');
+
+var animatePoints = function(points) {
+    var revealPoint= function(index) {
+        points[index].style.opacity = 1;
+        points[index].syle.transform = "scaleX(1) translateY(0)";
+        points[index].style.msTransform = "scaleX(1) translateY(0)";
+        points[index].style.WebkitTransform = "scaleX(1) translateY(0)";
+    }
+}
+
+window.onload = function() {
+    //Automatically animate the points on a tall screen where scrolling can't trigger the animation
+    if (window.innerHeight > 950) {
+        animatePoints(pointsArray);
+    }
+    var sellingPoints = document.getElementsByClassName('selling-points')[0];
+    
+    window.addEventListener('scroll', function(event) {
+        if (document.documentElement.scrollTop || document.body.scrollTop >= scrollDistance) {
+            animatePoints(pointsArray);
+        }
+    });
+}
