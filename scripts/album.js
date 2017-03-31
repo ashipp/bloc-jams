@@ -28,19 +28,35 @@ var albumMarconi = {
     ]
 };
 
-var createSongRow = function(songNumber, songName, songLength) {
+var albumShipp = {
+    title: 'The Shipps',
+    artist: 'Amy Shipp',
+    label: 'Shippism',
+    year: '1990',
+    albumArtUrl: 'assets/images/album_covers/02.png',
+    songs: [
+        {title: 'A', duration: '1:00' },
+        {title: 'M', duration: '2:00' },
+        {title: 'Y', duration: '3:00'},
+        {title: 'R', duration: '4:00'},
+        {title: 'S', duration: '5:00'}
+    ]
+};
+
+document.getElementsByClassName('album-cover-art').addEventListener("click");
+
+var createSongRow = function (songNumber, songName, songLength) {
     var template =
         '<tr class="album-view-song-item">'
-    +   ' <td class="song-item-number">' + songNumber + '</td>'
-    +   ' <td class="song-item-title">' + songName + '</td>'
-    +   ' <td class="song-item-duration">' + songLength + '</td>'
-    +   '</tr>'
-    ;
+        + ' <td class="song-item-number">' + songNumber + '</td>'
+        + ' <td class="song-item-title">' + songName + '</td>'
+        +   ' <td class="song-item-duration">' + songLength + '</td>'
+        +   '</tr>';
     
     return template;
 };
 
-var setCurrentAlbum = function(album) {
+var setCurrentAlbum = function (album) {
     // #1
     var albumTitle = document.getElementsByClassName('album-view-title')[0];
     var albumArtist = document.getElementsByClassName('album-view-artist')[0];
