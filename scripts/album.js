@@ -87,7 +87,7 @@ window.onload = function() {
                 songItem.innerHTML = playButtonTemplate;
         }
     };
-    
+    })
     
     for (var i = 0; i < songRows.length; i++) {
         songRows[i].addEventListener('mouseleave', function(event) {
@@ -101,7 +101,7 @@ window.onload = function() {
             }
          });
         
-        song.Rows[i].addEventListener('click', function(event) {
+        songRows[i].addEventListener('click', function(event) {
             clickHandler(event.target);
         });
     }
